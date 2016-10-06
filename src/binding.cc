@@ -27,6 +27,7 @@ NAN_METHOD(Open) {
   audio_output_t *ao = UnwrapPointer<audio_output_t *>(info[0]);
   memset(ao, 0, sizeof(audio_output_t));
 
+  ao->device = "hw2:0";
   ao->channels = info[1]->Int32Value(); /* channels */
   ao->rate = info[2]->Int32Value(); /* sample rate */
   ao->format = info[3]->Int32Value(); /* MPG123_ENC_* format */
